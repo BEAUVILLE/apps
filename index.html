@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+
+  <title>DIGIY APPS — Les bras numériques du terrain</title>
+  <meta name="description" content="DIGIY APPS rassemble les portes utiles du terrain : HUB, DRIVER, LOC, RESTO, JOBS, MARKET, PAY, Espace Pro et activation module. Contact direct, paiement direct, 0% commission." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://apps.digiylyfe.com/" />
+
+  <meta name="theme-color" content="#064e3b" />
+  <meta name="digiy-build" content="digiy-apps-public-hub-20260629" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://apps.digiylyfe.com/" />
+  <meta property="og:title" content="DIGIY APPS — Les bras numériques du terrain" />
+  <meta property="og:description" content="Toutes les portes utiles DIGIYLYFE : HUB, modules publics, modules pro, activation et paiement direct. Le terrain garde la main." />
+  <meta property="og:image" content="https://digiylyfe.net/wp-content/uploads/2026/03/digiylyfe_logo_qr.jpeg" />
+  <meta property="og:locale" content="fr_SN" />
+  <meta property="og:site_name" content="DIGIYLYFE" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DIGIY APPS — Les bras numériques du terrain" />
+  <meta name="twitter:description" content="Les portes DIGIYLYFE : trouver, réserver, recruter, vendre, encaisser, activer son module." />
+  <meta name="twitter:image" content="https://digiylyfe.net/wp-content/uploads/2026/03/digiylyfe_logo_qr.jpeg" />
+
+  <link rel="icon" href="https://digiylyfe.net/wp-content/uploads/2026/03/digiylyfe_logo_qr.jpeg" />
+  <link rel="apple-touch-icon" href="https://digiylyfe.net/wp-content/uploads/2026/03/digiylyfe_logo_qr.jpeg" />
+
+  <style>
+    :root{
+      --bg0:#03120c;
+      --bg1:#062016;
+      --bg2:#064e3b;
+      --card:rgba(255,255,255,.075);
+      --card2:rgba(255,255,255,.115);
+      --line:rgba(255,255,255,.14);
+      --ink:#f8fafc;
+      --soft:rgba(248,250,252,.78);
+      --muted:rgba(248,250,252,.58);
+      --gold:#facc15;
+      --green:#22c55e;
+      --blue:#38bdf8;
+      --red:#fb7185;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:26px;
+      --max:1120px;
+      --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100svh;
+      color:var(--ink);
+      font-family:var(--font);
+      background:
+        radial-gradient(880px 460px at 8% -8%,rgba(34,197,94,.30),transparent 62%),
+        radial-gradient(760px 420px at 98% 0%,rgba(250,204,21,.18),transparent 58%),
+        linear-gradient(180deg,#075f32 0%,#052e22 38%,#03120c 100%);
+      overflow-x:hidden;
+      font-weight:850;
+    }
+
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .page{width:min(var(--max),calc(100% - 24px));margin:0 auto;padding:16px 0 80px}
+    .shell{
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:32px;
+      background:linear-gradient(180deg,rgba(5,42,27,.82),rgba(3,18,12,.96));
+      box-shadow:var(--shadow);
+    }
+    .shell::before{content:"";display:block;height:5px;background:linear-gradient(90deg,var(--green),#00853f,var(--gold))}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 16px;
+      background:rgba(3,18,12,.86);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.09);
+    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .logo{
+      width:52px;height:52px;border-radius:17px;overflow:hidden;
+      border:1px solid rgba(250,204,21,.38);
+      background:rgba(255,255,255,.08);
+      flex:0 0 auto;
+      box-shadow:0 10px 26px rgba(0,0,0,.24);
+    }
+    .logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .brand b{
+      display:block;
+      font-size:19px;
+      letter-spacing:.06em;
+      font-weight:1000;
+      line-height:1;
+    }
+    .brand span{
+      display:block;
+      margin-top:5px;
+      color:var(--soft);
+      font-size:12.5px;
+      font-weight:900;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:330px;
+    }
+    .topActions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .topBtn{
+      min-height:42px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:7px;
+      padding:0 13px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.075);
+      color:#fff;
+      font-size:12px;
+      font-weight:1000;
+      white-space:nowrap;
+    }
+    .topBtn.gold{border-color:rgba(250,204,21,.44);background:rgba(250,204,21,.13);color:#fff3cf}
+    .topBtn.green{border-color:rgba(34,197,94,.44);background:rgba(34,197,94,.14);color:#dcfce7}
+
+    .hero{padding:22px 18px 10px}
+    .heroCard{
+      border:1px solid rgba(250,204,21,.26);
+      border-radius:30px;
+      padding:22px;
+      background:
+        radial-gradient(680px 260px at 10% 0%,rgba(250,204,21,.14),transparent 60%),
+        linear-gradient(135deg,rgba(255,255,255,.095),rgba(255,255,255,.045));
+      box-shadow:0 14px 38px rgba(0,0,0,.22);
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:18px;
+      align-items:center;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:34px;
+      padding:0 12px;
+      border-radius:999px;
+      border:1px solid rgba(250,204,21,.32);
+      background:rgba(250,204,21,.10);
+      color:#fff3cf;
+      font-size:12px;
+      font-weight:1000;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    h1{
+      margin:12px 0 8px;
+      font-size:clamp(38px,7vw,76px);
+      line-height:.90;
+      letter-spacing:-.06em;
+      font-weight:1000;
+    }
+    h1 span{color:var(--gold)}
+    .lead{
+      margin:0;
+      max-width:780px;
+      color:var(--soft);
+      font-size:16px;
+      line-height:1.55;
+      font-weight:850;
+    }
+    .heroPills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:34px;
+      padding:0 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.07);
+      color:rgba(255,255,255,.88);
+      font-size:11.5px;
+      font-weight:1000;
+    }
+    .pill.gold{border-color:rgba(250,204,21,.34);background:rgba(250,204,21,.10);color:#fff3cf}
+    .pill.green{border-color:rgba(34,197,94,.34);background:rgba(34,197,94,.11);color:#dcfce7}
+    .qrBox{
+      width:170px;
+      min-height:170px;
+      border-radius:28px;
+      border:1px solid rgba(250,204,21,.28);
+      background:rgba(3,18,12,.52);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:16px;
+    }
+    .qrMark{
+      width:92px;height:92px;border-radius:26px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,#fff1bd,var(--gold),var(--green));
+      color:#06140f;
+      font-size:42px;
+      box-shadow:0 14px 30px rgba(0,0,0,.24);
+    }
+    .qrBox b{display:block;margin-top:12px;color:#fff3cf;font-size:13px}
+    .qrBox small{display:block;margin-top:5px;color:var(--muted);font-size:11px;line-height:1.35}
+
+    .section{
+      margin:14px 18px 0;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:28px;
+      background:rgba(255,255,255,.045);
+      box-shadow:0 14px 36px rgba(0,0,0,.18);
+      overflow:hidden;
+      scroll-margin-top:90px;
+    }
+    .sectionHead{
+      padding:16px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .section h2{
+      margin:0;
+      font-size:clamp(24px,4vw,38px);
+      line-height:1;
+      letter-spacing:-.04em;
+      font-weight:1000;
+    }
+    .sectionSub{
+      margin-top:7px;
+      color:var(--soft);
+      font-size:13.5px;
+      line-height:1.45;
+      font-weight:850;
+      max-width:780px;
+    }
+    .miniLink{
+      min-height:38px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 12px;
+      border-radius:999px;
+      border:1px solid rgba(250,204,21,.34);
+      background:rgba(250,204,21,.10);
+      color:#fff3cf;
+      font-size:12px;
+      font-weight:1000;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+      padding:14px;
+    }
+    .card{
+      min-height:176px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:23px;
+      padding:15px;
+      background:linear-gradient(180deg,rgba(255,255,255,.095),rgba(255,255,255,.045));
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+      transition:transform .15s,border-color .15s,background .15s;
+    }
+    .card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(250,204,21,.38);
+      background:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.055));
+    }
+    .card.gold{border-color:rgba(250,204,21,.24);background:linear-gradient(180deg,rgba(250,204,21,.12),rgba(255,255,255,.045))}
+    .card.green{border-color:rgba(34,197,94,.24);background:linear-gradient(180deg,rgba(34,197,94,.12),rgba(255,255,255,.045))}
+    .card.blue{border-color:rgba(56,189,248,.24);background:linear-gradient(180deg,rgba(56,189,248,.11),rgba(255,255,255,.045))}
+    .icon{font-size:34px;line-height:1}
+    .card b{display:block;color:#fff;font-size:18px;line-height:1.10;font-weight:1000}
+    .card p{margin:0;color:var(--soft);font-size:13px;line-height:1.42;flex:1}
+    .open{
+      min-height:40px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:15px;
+      border:1px solid rgba(250,204,21,.28);
+      background:rgba(250,204,21,.10);
+      color:#fff3cf;
+      font-size:12px;
+      font-weight:1000;
+    }
+
+    .doctrine{
+      margin:14px 18px 18px;
+      padding:16px;
+      border-radius:28px;
+      border:1px solid rgba(250,204,21,.24);
+      background:
+        radial-gradient(620px 260px at 10% 0%,rgba(250,204,21,.11),transparent 60%),
+        rgba(255,255,255,.05);
+      display:grid;
+      gap:10px;
+    }
+    .doctrine strong{color:#fff3cf}
+    .doctrine p{margin:0;color:var(--soft);line-height:1.5;font-size:14px}
+    .doctrineActions{display:flex;gap:8px;flex-wrap:wrap}
+    .bigCta{
+      min-height:52px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:0 16px;
+      border-radius:17px;
+      border:1px solid rgba(250,204,21,.42);
+      background:linear-gradient(135deg,var(--gold),var(--green));
+      color:#06140f;
+      font-size:13px;
+      font-weight:1000;
+    }
+    .bigCta.dark{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.16)}
+
+    .footer{
+      padding:18px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--soft);
+      font-size:13px;
+      line-height:1.5;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .footer strong{color:#fff3cf}
+    .footer a{border-bottom:1px solid rgba(250,204,21,.32)}
+
+    @media(max-width:980px){
+      .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .heroCard{grid-template-columns:1fr}
+      .qrBox{width:100%;min-height:140px;display:flex;justify-content:flex-start;gap:14px;text-align:left}
+      .qrBox b{margin-top:0}
+    }
+    @media(max-width:760px){
+      .page{width:100%;padding:0 0 70px}
+      .shell{border-radius:0;border-left:0;border-right:0}
+      .topbar{padding:11px;align-items:flex-start}
+      .topActions .topBtn{display:none}
+      .brand span{max-width:190px}
+      .hero{padding:12px 12px 6px}
+      .heroCard{border-radius:24px;padding:16px}
+      .section{margin:12px 12px 0;border-radius:24px}
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr));padding:10px;gap:10px}
+      .card{min-height:164px;padding:13px}
+      .doctrine{margin:12px;border-radius:24px}
+    }
+    @media(max-width:440px){
+      .grid{grid-template-columns:1fr}
+      .card{min-height:142px}
+      .logo{width:46px;height:46px}
+      .brand b{font-size:17px}
+      .brand span{font-size:11.5px;max-width:165px}
+      h1{font-size:36px}
+      .qrBox{align-items:center}
+      .qrMark{width:76px;height:76px;border-radius:22px;font-size:34px}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"DIGIY APPS",
+    "url":"https://apps.digiylyfe.com/",
+    "description":"Les portes digitales DIGIYLYFE pour les métiers du terrain : contact direct, réservation, recrutement, commerce local, paiement direct et 0% commission.",
+    "publisher":{
+      "@type":"Organization",
+      "name":"DIGIYLYFE",
+      "url":"https://digiylyfe.com/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <div class="page">
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand" href="https://digiylyfe.com/" aria-label="Retour DIGIYLYFE">
+          <span class="logo">
+            <img src="https://digiylyfe.net/wp-content/uploads/2026/03/digiylyfe_logo_qr.jpeg" alt="Logo DIGIYLYFE" />
+          </span>
+          <span>
+            <b>DIGIY APPS</b>
+            <span>Les bras numériques du terrain</span>
+          </span>
+        </a>
+
+        <nav class="topActions" aria-label="Navigation rapide">
+          <a class="topBtn gold" href="https://digiy-hub.digiylyfe.com/">🧭 HUB</a>
+          <a class="topBtn green" href="#public">🌍 Public</a>
+          <a class="topBtn green" href="#pro">🏢 Pro</a>
+          <a class="topBtn gold" href="https://commencer-a-payer.digiylyfe.com/">✍️ Activer</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="heroCard">
+            <div>
+              <span class="kicker">∞ DIGIYLYFE · 0% commission</span>
+              <h1>Les apps DIGIY.<br><span>Le terrain garde la main.</span></h1>
+              <p class="lead">
+                Une seule porte pour ouvrir les bras numériques utiles : trouver un chauffeur, réserver, louer,
+                vendre, recruter, publier une mission, encaisser, activer son module ou entrer dans son espace pro.
+                DIGIY prépare la porte digitale, le professionnel garde son client et son argent.
+              </p>
+              <div class="heroPills">
+                <span class="pill gold">QR direct</span>
+                <span class="pill green">Contact direct</span>
+                <span class="pill">Paiement direct au pro</span>
+                <span class="pill">0% commission</span>
+                <span class="pill">0% dépendance</span>
+              </div>
+            </div>
+
+            <a class="qrBox" href="https://digiy-hub.digiylyfe.com/" aria-label="Ouvrir le HUB DIGIY">
+              <span class="qrMark">🧭</span>
+              <span>
+                <b>Ouvrir le HUB</b>
+                <small>Le rond-point principal des métiers du terrain.</small>
+              </span>
+            </a>
+          </div>
+        </section>
+
+        <section class="section" id="public">
+          <div class="sectionHead">
+            <div>
+              <h2>🌍 Portes publiques</h2>
+              <div class="sectionSub">Pour les clients, voyageurs, candidats et habitants : trouver, réserver, acheter, contacter.</div>
+            </div>
+            <a class="miniLink" href="#pro">Voir les portes pro ↓</a>
+          </div>
+
+          <div class="grid">
+            <a class="card gold" href="https://digiy-hub.digiylyfe.com/">
+              <span class="icon">🧭</span>
+              <b>DIGIY HUB</b>
+              <p>Le rond-point principal : toutes les portes utiles du terrain.</p>
+              <span class="open">Ouvrir</span>
+            </a>
+
+            <a class="card green" href="https://driver.digiylyfe.com/">
+              <span class="icon">🚗</span>
+              <b>Trouver un chauffeur</b>
+              <p>Chauffeurs locaux, trajets directs, contact simple.</p>
+              <span class="open">Ouvrir</span>
+            </a>
+
+            <a class="card" href="https://loc.digiylyfe.com/">
+              <span class="icon">🏠</span>
+              <b>Logements</b>
+              <p>Chambres, villas, appartements : propriétaire direct.</p>
+              <span class="open">Ouvrir</span>
+            </a>
+
+            <a class="card" href="https://resto.digiylyfe.com/">
+              <span class="icon">🍽️</span>
+              <b>Restaurants</b>
+              <p>Restaurants visibles, contact direct, relation préservée.</p>
+              <span class="open">Ouvrir</span>
+            </a>
+
+            <a class="card blue" href="https://resa-table-resto.digiylyfe.com/">
+              <span class="icon">📅</span>
+              <b>Réserver</b>
+              <p>Réservation simple chez le pro, sans plateforme dominante.</p>
+              <span class="open">Ouvrir</span>
+            </a>
+
+            <a class="card" href="https://market.digiylyfe.com/">
+              <span class="icon">🛍️</span>
+              <b>Marché local</b>
+              <p>Boutiques et produits visibles, vendeur direct.</p>
+              <span class="open">Ouvrir</span>
+            </a>
+
+            <a class="card" href="https://build.digiylyfe.com/">
+              <span class="icon">🏗️</span>
+              <b>Artisans</b>
+              <p>Travaux, dépannage, services : l’artisan reste le patron.</p>
+              <span class="open">Ouvrir</span>
+            </a>
+
+            <a class="card" href="https://jobs.digiylyfe.com/">
+              <span class="icon">💼</span>
+              <b>Trouver du travail</b>
+              <p>Missions et opportunités terrain, lecture simple.</p>
+              <span class="open">Ouvrir</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="section" id="pro">
+          <div class="sectionHead">
+            <div>
+              <h2>🏢 Portes pro</h2>
+              <div class="sectionSub">Pour les professionnels : activer, gérer, publier, suivre, encaisser, recruter.</div>
+            </div>
+            <a class="miniLink" href="https://commencer-a-payer.digiylyfe.com/">Activer mon module</a>
+          </div>
+
+          <div class="grid">
+            <a class="card gold" href="https://commencer-a-payer.digiylyfe.com/">
+              <span class="icon">✍️</span>
+              <b>Activer mon module</b>
+              <p>Inscription et activation côté pro, avant accès protégé.</p>
+              <span class="open">Ouvrir</span>
+            </a>
+
+            <a class="card green" href="https://pro-espace.digiylyfe.com/">
+              <span class="icon">🔐</span>
+              <b>Espace pro</b>
+              <p>Porte protégée vers les modules abonnés.</p>
+              <span class="open">Ouvrir</span>
+            </a>
+
+            <a class="card" href="https://pro-resto.digiylyfe.com/pin.html">
+              <span class="icon">🍽️</span>
+              <b>PRO RESTO</b>
+              <p>Restaurant : action, fiche, calendrier, acompte PAY.</p>
+              <span class="open">Entrer</span>
+            </a>
+
+            <a class="card" href="https://pro-resa-resto.digiylyfe.com/pin.html">
+              <span class="icon">📅</span>
+              <b>Je réserve</b>
+              <p>Planning, créneaux, clients, réservation pro.</p>
+              <span class="open">Entrer</span>
+            </a>
+
+            <a class="card" href="https://pro-job.digiylyfe.com/pin.html">
+              <span class="icon">💼</span>
+              <b>Je recrute</b>
+              <p>Publier une mission, suivre les retours, QR public.</p>
+              <span class="open">Entrer</span>
+            </a>
+
+            <a class="card" href="https://commerce-pro.digiylyfe.com/pin.html">
+              <span class="icon">👜</span>
+              <b>Mon commerce</b>
+              <p>Boutique, fiche, produits, visibilité locale.</p>
+              <span class="open">Entrer</span>
+            </a>
+
+            <a class="card blue" href="https://pro-pay.digiylyfe.com/">
+              <span class="icon">💳</span>
+              <b>PAY PRO</b>
+              <p>Trace d’acompte, paiement direct, suivi terrain.</p>
+              <span class="open">Ouvrir</span>
+            </a>
+
+            <a class="card" href="https://pro-action-digiy.digiylyfe.com/">
+              <span class="icon">🎙️</span>
+              <b>La Voix du Business</b>
+              <p>Parler métier, préparer l’action, garder la main.</p>
+              <span class="open">Ouvrir</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="doctrine">
+          <p>
+            <strong>DIGIYLYFE ne vend pas un QR.</strong>
+            DIGIYLYFE ouvre le château digital de l’activité locale : fiche, lien, action, contact,
+            réservation, paiement direct et visibilité terrain.
+          </p>
+          <p>
+            Les grandes plateformes prennent une commission et captent la relation. DIGIY organise la porte,
+            mais le professionnel garde son client, son argent et sa souveraineté.
+          </p>
+          <div class="doctrineActions">
+            <a class="bigCta" href="https://digiy-hub.digiylyfe.com/">🧭 Entrer dans le HUB</a>
+            <a class="bigCta dark" href="https://digiylyfe.com/">🌍 Retour site principal</a>
+            <a class="bigCta dark" href="https://tarifs.digiylyfe.com/">💎 Voir les tarifs</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div><strong>DIGIYLYFE ∞</strong> · Les bras numériques du terrain · 0% commission · paiement direct au pro.</div>
+        <div><a href="#public">Public</a> · <a href="#pro">Pro</a> · <a href="https://digiylyfe.com/">Site</a></div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
